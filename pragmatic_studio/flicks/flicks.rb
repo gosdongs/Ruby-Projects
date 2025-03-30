@@ -1,5 +1,5 @@
-puts "Hello World!"
+person = 'Tommy'
+rank = 10
 
-phrase = "Ruby is fun!"
-
-puts phrase
+puts "#{person} has a rank of #{rank}"
+puts "Janelle's favorite boyfriend is #{person}.\nShe gives him a #{rank}!"
