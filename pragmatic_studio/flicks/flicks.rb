@@ -1,16 +1,33 @@
-def emojis(emoji, number)
-  "#{emoji}" * number
+class Movie
+  def initialize(title, rank = 5)
+    @title = title.capitalize
+    @rank = rank
+  end
+
+  def thumbs_up
+    @rank += 1
+  end
+
+  def thumbs_down
+    @rank -= 1
+  end
+
+  def to_s
+    "#{@title} has a rank #{@rank}"
+  end
 end
 
-def movie_info(title, rank = title.length)
-  stars = emojis("⭐", rank)
+movie_1 = Movie.new("goonies", 10)
+puts movie_1
+movie_1.thumbs_up
+puts movie_1
+movie_1.thumbs_up
+puts movie_1
 
-  "#{title.capitalize} has a rank of #{rank}: #{stars}"
-end
+movie_2 = Movie.new("ghostbusters", 9)
+puts movie_2
+movie_2.thumbs_down
+puts movie_2
 
-puts movie_info("goonies", 10)
-puts movie_info("ghostbusters", 9)
-
-movie_title = "rush hour 1"
-
-puts movie_info(movie_title)
+movie_3 = Movie.new("goldfinger")
+puts movie_3
