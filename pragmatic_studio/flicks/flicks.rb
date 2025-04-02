@@ -21,11 +21,25 @@ end
 
 movie_1 = Movie.new("goonies", 10)
 
-puts movie_1.title
-movie_1.title = "gooneys"
-puts movie_1.title
+number_rolled = rand(1..6)
 
-puts movie_1.rank
+case number_rolled
+when 1..2
+  movie_1.thumbs_down
+  puts "#{movie_1.title} got a thumbs down!"
+when 3..4
+  puts "#{movie_1.title} got skipped!"
+else
+  movie_1.thumbs_up
+  puts "#{movie_1.title} got a thumbs up!"
+end
+
+
+# puts movie_1.title
+# movie_1.title = "gooneys"
+# puts movie_1.title
+
+# puts movie_1.rank
 
 # puts movie_1
 # movie_1.thumbs_up
