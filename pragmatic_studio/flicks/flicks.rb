@@ -20,20 +20,31 @@ class Movie
 end
 
 movie_1 = Movie.new("goonies", 10)
+movie_2 = Movie.new("ghostbusters", 9)
+movie_3 = Movie.new("goldfinger")
 
-number_rolled = rand(1..6)
+movies = [movie_1, movie_2, movie_3]
 
-case number_rolled
-when 1..2
-  movie_1.thumbs_down
-  puts "#{movie_1.title} got a thumbs down!"
-when 3..4
-  puts "#{movie_1.title} got skipped!"
-else
-  movie_1.thumbs_up
-  puts "#{movie_1.title} got a thumbs up!"
+puts "\nBefore watching:"
+puts movies
+
+movies.each do |movie|
+  number_rolled = rand(1..6)
+  
+  case number_rolled
+  when 1..2
+    movie.thumbs_down
+    puts "#{movie.title} got a thumbs down!"
+  when 3..4
+    puts "#{movie.title} got skipped!"
+  else
+    movie.thumbs_up
+    puts "#{movie.title} got a thumbs up!"
+  end
 end
 
+puts "\nAfter watching:"
+puts movies
 
 # puts movie_1.title
 # movie_1.title = "gooneys"
@@ -47,10 +58,3 @@ end
 # movie_1.thumbs_up
 # puts movie_1
 
-# movie_2 = Movie.new("ghostbusters", 9)
-# puts movie_2
-# movie_2.thumbs_down
-# puts movie_2
-
-# movie_3 = Movie.new("goldfinger")
-# puts movie_3
