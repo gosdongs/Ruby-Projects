@@ -26,62 +26,69 @@ class Player
   def to_s = "I'm #{@name} with a health of #{@health} and a score of #{score}"
 end
 
+class Game
+  attr_reader :title, :players
+
+  def initialize(title)
+    @title = title
+    @players = []
+  end
+
+  def add_player(player)
+    @players.push(player)
+  end
+
+  def roll_die
+    rand(1..6)
+  end
+
+  def play
+    puts "\nLet's play #{@title}!"
+    puts "\nBefore playing:"
+    puts @players
+
+    @players.each do |player|
+      number_rolled = roll_die
+    
+      case number_rolled
+      when 1..2
+        player.drain
+        puts "#{player.name} got drained 😩"
+      when 3..4
+        puts "#{player.name} got skipped"
+      else
+        player.boost
+        puts "#{player.name} got boosted 😁"
+      end
+    end
+
+    puts "\nAfter playing:"
+    puts @players
+  end
+end
+
 player_1 = Player.new("finn", 60)
 player_2 = Player.new("lucy", 90)
 player_3 = Player.new("jase")
 player_4 = Player.new("alex", 125)
 
-players = [player_1, player_2, player_3, player_4]
+game_1 = Game.new("Winner Takes All")
 
-players.pop
+game_1.add_player(player_1)
+game_1.add_player(player_2)
+game_1.add_player(player_3)
+game_1.add_player(player_4)
 
-player_5 = Player.new("cole", 75)
-players.push(player_5)
+game_1.play
 
-puts "Before playing:"
-puts players
+game_2 = Game.new("Chipmunks")
 
-players.each do |player|
-  number_rolled = rand(1..6)
+player_5 = Player.new("Alvin")
+player_6 = Player.new("Simon")
+player_7 = Player.new("Theodore")
 
-  case number_rolled
-  when 1..2
-    player.drain
-    puts "#{player.name} got drained!"
-  when 3..4
-    puts "#{player.name} got skipped"
-  else
-    player.boost
-    puts "#{player.name} got boosted!"
-  end
-end
+game_2.add_player(player_5)
+game_2.add_player(player_6)
+game_2.add_player(player_7)
 
-puts "\nAfter playing:"
-puts players
-
-
-
-# puts player_4
-# player_4.name = "alexander"
-# puts player_4
-
-# puts player_1
-# puts player_1.health
-
-# puts player_2
-# puts player_2.health
-
-# puts player_3
-# puts player_3.health
-
-# puts player_4
-# player_4.drain
-# puts player_4.health
-
-# puts player_4
-# player_4.boost
-# puts player_4.health
-
-# player_4.name = "Alexander"
-# puts player_4.name
-# puts player_4
+game_2.play
