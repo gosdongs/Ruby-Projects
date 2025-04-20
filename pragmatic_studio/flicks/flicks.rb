@@ -11,7 +11,7 @@ playlist_1.add_movie(movie_1)
 playlist_1.add_movie(movie_2)
 playlist_1.add_movie(movie_3)
 
-playlist_1.play(2)
+playlist_1.play(10)
 
 playlist_2 = Playlist.new("Fozzie")
 
@@ -21,7 +21,7 @@ movie_4 = Movie.new("gremlines", 7)
 
 playlist_2.add_movie(movie_4)
 
-playlist_2.play
+# playlist_2.play
 
 # puts movie_1.title
 # movie_1.title = "gooneys"
