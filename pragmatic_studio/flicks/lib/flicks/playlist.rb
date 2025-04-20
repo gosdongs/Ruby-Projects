@@ -1,13 +1,6 @@
+require_relative "snackbar"
+
 class Playlist
-  Snack = Data.define(:name, :price)
-
-  SNACKS = [
-    Snack.new("popcorn", 3),
-    Snack.new("candy", 1),
-    Snack.new("nachos", 4),
-    Snack.new("pretzels", 2)
-  ]
-
   attr_reader :name, :movies
 
   def initialize(name)
@@ -28,7 +21,7 @@ class Playlist
     puts "#{@name}'s playlist:"
 
     puts "\nThe snackbar has:"
-    SNACKS.each do |snack|
+    Snackbar::SNACKS.each do |snack|
       puts "#{snack.name} for $#{snack.price}"
     end
 
@@ -52,7 +45,7 @@ class Playlist
           puts "#{movie.title} got a thumbs up!"
         end
 
-        snack = SNACKS.sample
+        snack = Snackbar.random_snack
         puts "During #{movie.title}, #{@name} ate #{snack.name} for $#{snack.price}."
       end
     end
