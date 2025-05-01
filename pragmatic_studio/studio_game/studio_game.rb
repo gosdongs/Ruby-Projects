@@ -13,8 +13,21 @@ game_1.add_player(player_2)
 game_1.add_player(player_3)
 game_1.add_player(player_4)
 
-game_1.play(5)
-game_1.print_stats
+loop do
+  print "\nHow many game rounds? ('quit' to exit) "
+
+  answer = gets.chomp.downcase
+
+  case answer
+  when /^\d+$/
+    game_1.play(answer.to_i)
+  when "quit", "exit"
+    game_1.print_stats
+    break
+  else
+    puts "Please enter a number or 'quit'"
+  end
+end
 
 # game_2 = Game.new("Chipmunks")
 
